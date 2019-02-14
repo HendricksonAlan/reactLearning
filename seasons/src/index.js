@@ -4,6 +4,8 @@ import SeasonDisplay from './SeasonDisplay';
 import Spinner from './Spinner';
 
 
+
+
 class App extends React.Component{
 
     state = {lat: null, errorMessage: '' };
@@ -19,8 +21,8 @@ class App extends React.Component{
         );
     }
 
-    render(){
-         if(this.state.errorMessage && !this.state.lat){
+    renderContent(){
+        if(this.state.errorMessage && !this.state.lat){
             return <div>Error: {this.state.errorMessage}</div>;
                 
          }
@@ -30,6 +32,12 @@ class App extends React.Component{
          }
 
          return <div>{Spinner()}}</div>;
+    }
+
+    render(){
+        return(
+            <div className="boarderRed">{this.renderContent()}</div>
+        );
     }
 
 }
